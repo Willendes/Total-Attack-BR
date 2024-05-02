@@ -20,24 +20,27 @@
         </div>
         <div class="data_enter">
             Ataque:
-            <input type="string" id="Ataque" min="0" onfocusout="atk_total()" />
+            <input type="string" id="Ataque" min="0" onfocusout="atk_total('atk')" />
             Defesa:
-            <input type="string" id="Defesa" min="0" onfocusout="atk_total()" />
+            <input type="string" id="Defesa" min="0" onfocusout="atk_total('def')" />
             HP:
-            <input type="string" id="HP" min="0" onfocusout="atk_total()" />
+            <input type="string" id="HP" min="0" onfocusout="atk_total('hp')" />
             Ataque Especial:
-            <input type="string" id="Ataque_Especial" min="0" onfocusout="atk_total()" />
+            <input type="string" id="Ataque_Especial" min="0" onfocusout="atk_total('sAtk')" />
             Defesa Especial:
-            <input type="string" id="Defesa_Especial" min="0" onfocusout="atk_total()" />
+            <input type="string" id="Defesa_Especial" min="0" onfocusout="atk_total('sDef')" />
             Crítico (%):
-            <input type="string" id="Critico" min="0" onfocusout="atk_total()" />
+            <input type="string" id="Critico" min="0" onfocusout="atk_total('critR')" />
             Dano Crítico (%):
-            <input type="string" id="Dano_Critico" min="0" onfocusout="atk_total()" />
+            <input type="string" id="Dano_Critico" min="0" onfocusout="atk_total('critD')" />
             Recuperar HP (%):
-            <input type="string" id="Recuperar_HP" min="0" onfocusout="atk_total()" />
+            <input type="string" id="Recuperar_HP" min="0" onfocusout="atk_total('recHp')" />
             Recuperar MP (%):
-            <input type="string" id="Recuperar_MP" min="0" onfocusout="atk_total()" />
+            <input type="string" id="Recuperar_MP" min="0" onfocusout="atk_total('recMp')" />
+            <input type="button" id="Guardar" value="Guardar" onclick="save()" />
+            <input type="button"  id="Carregar" value="Carregar" onclick="load()"/> 
         </div>
+       
 
         <div id="result" class="result">
             Ataque Total: <span class="yellow">0 ± 0</span>
