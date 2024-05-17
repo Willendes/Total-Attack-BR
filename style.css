@@ -41,11 +41,20 @@ body {
     border-radius: 10px;
     border-style: solid;
     border-color: #b9d5e7;
-    width: 576px;
+    width: 768px;
     margin: 0 auto;
     margin-top: 10pt;
+    display: grid;
+    grid-template-columns: repeat(2, 0.5fr);
+    grid-template-rows: 0.5fr 2fr 0.5fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "title title"
+    "input stored"
+    "total totalStored";
 }
 .title{
+    grid-area: title;
     font-family: "Montserrat", sans-serif;
     font-weight: 800;
     font-size: 24pt;
@@ -54,20 +63,34 @@ body {
     margin-bottom: 26.56px;
 }
 .data_enter{
-    width:300px;
+  grid-area: input;
+}
+
+.data_saved{
+  grid-area: stored;
+}
+
+.data_enter, .data_saved{
+    box-sizing: border-box;
     text-align: left;
-    position:relative;
-    left: 141px;
+    position: relative;
+    width: 100%;
+    padding-left: 20px;
     align-items: center;
     display:grid;
-    grid-template-columns: repeat(2, 205px);
-    grid-template-rows: repeat(9,25px);
+    grid-template-columns: repeat(2,0.5fr);
+    grid-template-rows: repeat(10,25px);
     margin-bottom: 10pt;
 }
   
-input{
-    width: 85px;
+input:not(.button){
+    margin: auto ;
+    width: 100px;
     height:15px;
+}
+
+.button{
+  width: 100px;
 }
 
 .result{
@@ -76,6 +99,13 @@ input{
   font-size: 18pt;
   margin-top: 26.56px;
   margin-bottom: 26.56px;
+}
+
+.result #result{
+  grid-area: total;
+}
+.result #stored{
+  grid-area: totalStored;
 }
 .yellow{
   color:yellow;
