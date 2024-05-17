@@ -1,9 +1,15 @@
 var stats = {'atk':0, 'def':0, 'hp':0, 'sAtk': 0,'sDef': 0,'crit_r': 0,'crit_d': 0,'recHp': 0,'recMp': 0, 'finalResult': 0, 'estError': 0};
-var memory = JSON.parse(localStorage.getItem("memory"))
+var memory =  {'atk':0, 'def':0, 'hp':0, 'sAtk': 0,'sDef': 0,'crit_r': 0,'crit_d': 0,'recHp': 0,'recMp': 0, 'finalResult': 0, 'estError': 0};
+
+if (localStorage.getItem("memory")){
+  memory = JSON.parse(localStorage.getItem("memory"))
+} 
+
 $(document).ready(function (){
 
   //fill memory table
   $('.data_saved span').each(function (e){
+    console.log(memory)
     $(this).text(Object.values(memory)[e])
   })
   $('#stored span').text(`${memory.finalResult} ± ${memory.estError}`);
