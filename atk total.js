@@ -1,18 +1,21 @@
-var stats = {'atk':0, 'def':0, 'hp':0, 'sAtk': 0,'sDef': 0,'crit_r': 0,'crit_d': 0,'recHp': 0,'recMp': 0, 'finalResult': 0, 'estError': 0};
-var memory =  {'atk':0, 'def':0, 'hp':0, 'sAtk': 0,'sDef': 0,'crit_r': 0,'crit_d': 0,'recHp': 0,'recMp': 0, 'finalResult': 0, 'estError': 0};
+//Deixei esse troço o mais eficiente possível mas matei a legibilidade,
+//boa sorte pro eu do futuro decifrar qualquer coisa aqui
 
+var stats = {'atk':0, 'def':0, 'hp':0, 'sAtk': 0,'sDef': 0,'crit_r': 0,'crit_d': 0,'recHp': 0,'recMp': 0, 'finalResult': 0, 'estError': 0};
+var tempMemory =  {'atk':0, 'def':0, 'hp':0, 'sAtk': 0,'sDef': 0,'crit_r': 0,'crit_d': 0,'recHp': 0,'recMp': 0, 'finalResult': 0, 'estError': 0};
+
+  //updates tempMemory with local storage
 if (localStorage.getItem("memory")){
-  memory = JSON.parse(localStorage.getItem("memory"))
+  tempMemory = JSON.parse(localStorage.getItem("memory"))
 } 
 
 $(document).ready(function (){
-
+  
   //fill memory table
   $('.data_saved span').each(function (e){
-    console.log(memory)
-    $(this).text(Object.values(memory)[e])
+    $(this).text(Object.values(tempMemory)[e])
   })
-  $('#stored span').text(`${memory.finalResult} ± ${memory.estError}`);
+  $('#stored span').text(`${tempMemory.finalResult} ± ${tempMemory.estError}`);
 
   //focus to the next
   $('input[type="string"]').keyup(function(e) {
@@ -21,16 +24,16 @@ $(document).ready(function (){
           $(this).nextAll('input[type="string"]').first().focus();
        }
   });
-  //calculate the equation on the line and total attack
+  //calculate the equation on the input and total attack
   $('input[type="string"]').focusout(function() {
     $(this).val(
-      stats[$(this).attr('id')] = lineEquation($(this).val())
+      stats[$(this).attr('id')] = inputEquation($(this).val())
     );
     atk_total();
   }); 
 });
 
-
+//calcs total attack
 function atk_total() {
 
 crit1 = stats.crit_r/100
@@ -76,7 +79,8 @@ for (var i = 0; i < list.length; i++) {
 return test_values;
 }
 
-function lineEquation(expression){
+//performs the equation in input
+function inputEquation(expression){
   expression = expression.replace(/\s+/g, '').replace(/,/g,".");
   const regex = /(\d+(?:\.\d+)?)([+-])(\d+(?:\.\d+)?)/;
   let match;
@@ -98,19 +102,20 @@ function lineEquation(expression){
   return Number(expression)
 }
 
-
 function save(){
   localStorage.setItem("memory", JSON.stringify(stats));
-  
+  tempMemory = JSON.parse(localStorage.getItem("memory"))
+
   $('.data_saved span').each(function (index){
     $(this).text(Object.values(stats)[index])
   })
   $('#stored span').text(`${stats.finalResult} ± ${stats.estError}`);
+
 }
 
 function load(){
-  for (let key in memory){
-    stats[key] = memory[key]
+  for (let key in tempMemory){
+    stats[key] = tempMemory[key]
     try {
       document.getElementById(key).value = stats[key]
     } catch (error) {

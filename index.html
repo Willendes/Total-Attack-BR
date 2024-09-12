@@ -26,17 +26,17 @@
             <input type="string" id="def" min="0"/>
             HP:
             <input type="string" id="hp" min="0"/>
-            Ataque Especial:
+            Ataque Esp:
             <input type="string" id="sAtk" min="0"/>
-            Defesa Especial:
+            Defesa Esp:
             <input type="string" id="sDef" min="0"/>
             Crítico (%):
             <input type="string" id="crit_r" min="0" />
             Dano Crítico (%):
             <input type="string" id="crit_d" min="0" />
-            Recuperar HP (%):
+            Rec HP (%):
             <input type="string" id="recHp" min="0" />
-            Recuperar MP (%):
+            Rec MP (%):
             <input type="string" id="recMp" min="0" />
             <input type="button" class="button" id="Guardar" value="Guardar" onclick="save()" />
         </div>
@@ -44,12 +44,12 @@
             Ataque:<span class = "memory">1</span>
             Defesa:<span class="memory">1</span>
             HP:<span class="memory">1</span>
-            Ataque Especial:<span class="memory">1</span>
-            Defesa Especial:<span class="memory">1</span>
+            Ataque Esp:<span class="memory">1</span>
+            Defesa Esp:<span class="memory">1</span>
             Crítico (%):<span class="memory">1</span>
             Dano Crítico (%):<span class="memory">1</span>
-            Recuperar HP (%):<span class="memory">1</span>
-            Recuperar MP (%):<span class="memory">1</span>
+            Rec HP (%):<span class="memory">1</span>
+            Rec MP (%):<span class="memory">1</span>
             <input type="button" class="button" id="Carregar" value="Carregar" onclick="load()"/> 
         </div>
     
@@ -60,19 +60,21 @@
             Ataque Total: <span>0 ± 0</span>
         </div>
     </div>
-    <div class="end">
-        <p id="comment0">
-            O valor após o ± indica o quanto o ataque total pode variar para mais ou para menos devido a incertezas (da ordem de até ~0.009%)
-        </p>
-        <p id="comment1">
+    <div class="comment">
+        <p>
+            O valor após o ± indica o quanto o ataque total pode variar para mais ou para menos devido a incertezas (da ordem de até ~0.009%).
+            <br>
+            <br>
+            Você pode efetuar pequenos cálculos ao inserir valores (Experimente digitar 10 + 10 por exemplo)
+            <br>
+            <br>
             Esta versão é um fork de <a class="link_calc"
             href="https://linktr.ee/thearesius" target="_blank"
             rel="noopener noreferrer">Aresius</a>, apenas fiz algumas alterações para se enquadrar melhor as minhas necessidades, todos os créditos a ele.
         </p>
     </div>
-
+    <footer>
+        <span>v.1.1.1 - Última atualização: 12 de Setembro de 2024.</span>
+    </footer>
 </body>
-<footer>
-    <div id="update">v.1.1.0 - Última atualização: 17 de Maio de 2024.</div>
-</footer>
 </html>

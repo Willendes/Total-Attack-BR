@@ -28,40 +28,51 @@ input[type="number"]::-webkit-outer-spin-button {
 body {
     font-family: "Montserrat", sans-serif;
     font-size: 14pt;
-    background: rgb(22, 22, 22);
-    color: white;
+    background: #121212;
+    color: #717171;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
-    margin: 0;
+    height: auto;
+
 }
 .main_frame{
-    background: #243851;
+    background: #282828;
     border-radius: 10px;
     border-style: solid;
-    border-color: #b9d5e7;
-    width: 768px;
+    border-color: #282828;
+    color: #a8a8a8;
+
+    width: auto;
+    min-width: 45vw;
+    max-width: 85vw;
+    height: auto;
     margin: 0 auto;
-    margin-top: 10pt;
+    margin-top: 5pt;
+
+    padding: 0 20pt 0 20pt;
+
     display: grid;
     grid-template-columns: repeat(2, 0.5fr);
     grid-template-rows: 0.5fr 2fr 0.5fr;
-    gap: 0px 0px;
     grid-template-areas:
     "title title"
     "input stored"
     "total totalStored";
 }
+
 .title{
-    grid-area: title;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 800;
-    font-size: 24pt;
-    text-align: center;
-    margin-top: 26.56px;
-    margin-bottom: 26.56px;
+  grid-area: title;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
+
+
+
 .data_enter{
   grid-area: input;
 }
@@ -75,30 +86,38 @@ body {
     text-align: left;
     position: relative;
     width: 100%;
-    padding-left: 20px;
+    padding: 0 10pt 0 10px;
     align-items: center;
     display:grid;
-    grid-template-columns: repeat(2,0.5fr);
-    grid-template-rows: repeat(10,25px);
-    margin-bottom: 10pt;
+    grid-template-columns: 0.75fr 0.25fr;
+    grid-template-rows: repeat(10, 0.09fr 0.01fr);
 }
   
 input:not(.button){
     margin: auto ;
-    width: 100px;
-    height:15px;
+    width: 100%;
+    border: none;
+    background-color: #575757;
+    color: white;
+    text-align: right;
+    
 }
 
 .button{
   width: 100px;
+  border: none;
+  background-color: #bb686f;
+  color: #121212;
+  font-weight: 600;
+
 }
 
 .result{
   text-align: center;
   font-weight: 800;
-  font-size: 18pt;
-  margin-top: 26.56px;
-  margin-bottom: 26.56px;
+  font-size: 1.5rem;
+  margin-top: 10pt;
+  margin-bottom: 10pt;
 }
 
 .result #result{
@@ -108,7 +127,7 @@ input:not(.button){
   grid-area: totalStored;
 }
 .yellow{
-  color:yellow;
+  color:#9e3344;
 }
 .error {
   color: yellow;
@@ -116,35 +135,61 @@ input:not(.button){
   font-size: 12pt;
 
 }
-.end{
-  font-family: "Montserrat", sans-serif;
-  font-size: 11pt;
-  max-width: 576px;
-  margin: 25pt auto;
+.comment{
+  font-size: 12pt;
+  max-width: 700px;
+  margin:15pt auto;
   text-align: justify;
 }
-.me{
-  color: #ebb82b;
-}
+
 a.link_calc:link,
 a.link_calc:visited{
-  color:#12d3b6;
+  color: #bb686f;
   font: bold;
 }
 a.link_calc:hover,
 a.link_calc:focus,
 a.link_calc:active{
-  color: #00f7ff;
+  color: #ad4e59;
 }
 footer {
-  display: flex;
-  justify-content: space-between;
-  font-family: "Montserrat", sans-serif;
-  font-size: 10pt;
-  margin-left: 4px;
   position: absolute;
-  bottom:4px;
+  font-size: 10pt;
+  margin-left: 2pt;
+  bottom: 4pt;
 }
-div#update {
-  margin-left: 4px;
+
+@media (max-width: 700px){
+  .main_frame{
+    padding: 0 10pt 0 10pt;
+    grid-template-columns: none;
+    grid-template-rows:0.15fr 0.4fr 0.025fr 0.4fr 0.025fr ;
+    grid-template-areas:
+    "title"
+    "input"
+    "total"
+    "stored"
+    "totalStored"
+  }
+  .title{
+    margin: 5pt 0 5pt 0;
+    font-size: 1.3rem;
+  }
+
+  .data_enter, .data_saved{
+    font-size: 1.1rem;
+    grid-template-rows: repeat(10,0.1fr);
+    gap: 2px;
+  }
+
+  .result{
+    margin: 10pt 0 10pt 0;
+    font-size: 1.2rem;
+  }
+
+  .comment{
+    margin: auto;
+    margin-bottom: 25pt;
+    width: 90vw;
+  }
 }
