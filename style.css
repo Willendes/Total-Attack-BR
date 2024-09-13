@@ -92,15 +92,27 @@ body {
     grid-template-columns: 0.75fr 0.25fr;
     grid-template-rows: repeat(10, 0.09fr 0.01fr);
 }
-  
+
 input:not(.button){
     margin: auto ;
     width: 100%;
     border: none;
+
     background-color: #575757;
     color: white;
+
+    font-family: inherit;
     text-align: right;
+
     
+    
+}
+
+input:not(.button):focus{
+  outline: none;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #bb686f;
 }
 
 .button{
@@ -108,8 +120,14 @@ input:not(.button){
   border: none;
   background-color: #bb686f;
   color: #121212;
+  font-size: 10pt;
   font-weight: 600;
+  transition: filter 0.3s ease;
 
+}
+
+.button:hover{
+  filter: brightness(1.2);
 }
 
 .result{
