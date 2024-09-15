@@ -18,14 +18,14 @@ $(document).ready(function (){
   $('#stored span').text(`${tempMemory.finalResult} ± ${tempMemory.estError}`);
 
   //focus to the next
-  $('input[type="string"]').keyup(function(e) {
+  $('input[type="text"]').keyup(function(e) {
       if(e.which == '13')
        {
-          $(this).nextAll('input[type="string"]').first().focus();
+          $(this).nextAll('input[type="text"]').first().focus();
        }
   });
   //calculate the equation on the input and total attack
-  $('input[type="string"]').focusout(function() {
+  $('input[type="text"]').focusout(function() {
     $(this).val(
       stats[$(this).attr('id')] = inputEquation($(this).val())
     );
